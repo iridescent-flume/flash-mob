@@ -8,6 +8,12 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#f0f8ff',
   },
+  containerRight: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    backgroundColor: '#f0f8ff',
+  },
   textInputContainer: {
     flex: 1,
     justifyContent: 'center',
@@ -22,9 +28,6 @@ export const styles = StyleSheet.create({
     flex: 1
   },
   imageEventPage: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    flex: 1,
   },
   image: {
     height: 70,
@@ -53,7 +56,13 @@ export const styles = StyleSheet.create({
   buttonText: {
     fontSize: 18,
     color: '#ff69b4',
-    alignSelf: 'center'
+    alignSelf: 'center',
+    marginBottom: 3,
+  },
+  greetings: {
+    fontSize: 18,
+    color: '#ff69b4',
+    alignSelf: 'flex-start'
   },
   button: {
     height: 45,
@@ -96,9 +105,22 @@ export const styles = StyleSheet.create({
     marginBottom: 5,
   },
   events: {
-    marginTop: 70,
+    // marginTop: 70,
+    alignItems: 'flex-start',
     flexDirection: 'row',
     flex: 1,
+  },
+  publicButton: {
+    flex: 1,
+    height: 30,
+    width: 30,
+    justifyContent: 'center',
+    borderWidth: 1,
+    borderColor: '#ff69b4',
+    marginTop: 70,
+    marginBottom: 10,
+    // marginLeft: 320,
+    borderRadius: 15,
   },
   greeting: {
     flex: 4,
@@ -154,6 +176,51 @@ export const styles = StyleSheet.create({
     marginBottom: 5,
     borderRadius: 15,
   },
+
+  meComingHightlight: {
+    height: 30,
+    width: 140,
+    alignSelf: 'center',
+    justifyContent: 'center',
+    borderWidth: 1,
+    borderColor: '#ff69b4',
+    backgroundColor: 'white',
+    marginLeft: 5,
+    marginRight: 5,
+    marginBottom: 5,
+    borderRadius: 15,
+  },
+
+  hiddenButtons:{
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
+    flexWrap: 'wrap',
+    height: 35,
+  },
+  Coming: {
+    height: 30,
+    width: 140,
+    alignSelf: 'flex-start',
+    justifyContent: 'center',
+    borderWidth: 1,
+    borderColor: '#ff69b4',
+    marginLeft: 0,
+    marginRight: 5,
+    marginBottom: 5,
+    borderRadius: 15,
+  },
+  EventInfo: {
+    height: 30,
+    width: 140,
+    alignSelf: 'flex-end',
+    justifyContent: 'center',
+    borderWidth: 1,
+    borderColor: '#ff69b4',
+    marginLeft: 25,
+    marginRight: 5,
+    marginBottom: 5,
+    borderRadius: 15,
+  },
   eventButtons: {
     justifyContent: 'center',
     alignItems: 'flex-end'
@@ -169,6 +236,7 @@ export const styles = StyleSheet.create({
     marginBottom: 5,
     borderRadius: 3,
   },
+    
   add: {
     height: 30,
     width: 30,
@@ -176,19 +244,6 @@ export const styles = StyleSheet.create({
     // justifyContent: 'center',
     borderWidth: 1,
     borderColor: '#ff69b4',
-    marginLeft: 5,
-    marginRight: 5,
-    marginBottom: 5,
-    borderRadius: 15,
-  },
-  meComingHightlight: {
-    height: 30,
-    width: 140,
-    alignSelf: 'center',
-    justifyContent: 'center',
-    borderWidth: 1,
-    borderColor: '#ff69b4',
-    backgroundColor: 'white',
     marginLeft: 5,
     marginRight: 5,
     marginBottom: 5,

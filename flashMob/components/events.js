@@ -26,12 +26,17 @@ export class EventsList extends Component {
       lastPosition: 'unknown',
       latitude: '',
       longitude: '',
-      dataForMarkers: null
+      dataForMarkers: null,
+      current: true
     };
     this._onForward = this._onForward.bind(this);
     this._onRefresh = this._onRefresh.bind(this);
     this.renderSectionHeader = this.renderSectionHeader.bind(this);
-    this.getNearbyEvents = this.getNearbyEvents.bind(this);
+    this.getMyEvents = this.getMyEvents.bind(this);
+    this.getMyPastEvents = this.getMyPastEvents.bind(this);
+    this.getEvents = this.getEvents.bind(this);
+    this.setCurrent = this.setCurrent.bind(this);
+    this.setPast = this.setPast.bind(this);
   }
 
   watchID: ?number = null;
@@ -58,7 +63,7 @@ export class EventsList extends Component {
         this.setState({lastPosition});
         this.setState({latitude: lastPosition.coords.latitude});
         this.setState({longitude: lastPosition.coords.longitude});
-        this.getNearbyEvents();
+        this.getMyEvents();
       }
     );
   }
@@ -66,11 +71,18 @@ export class EventsList extends Component {
   componentWillUnmount() {
     navigator.geolocation.clearWatch(this.watchID);
   }
+  
+  getMyEvents() {
+    this.getEvents('http://localhost:3000/api/myEvents');
+  }
+
+  getMyPastEvents() {
+    this.getEvents('http://localhost:3000/api/myPastEvents');
+  }
 
   //function to look for near by events, passing in lat and lng
-  getNearbyEvents() {
-    //invoke when user log in, return event near by events
-    fetch('http://localhost:3000/api/eventsList', {
+  getEvents(route) {
+    fetch(route, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -79,6 +91,7 @@ export class EventsList extends Component {
       body: JSON.stringify({
         latitude: this.state.latitude,
         longitude: this.state.longitude,
+        username: this.props.username
       })
       })
       .then((res) => res.json())
@@ -90,6 +103,22 @@ export class EventsList extends Component {
         })
       }
     );
+  }
+
+  setCurrent() {
+    this.setState({
+      current: true,
+      refreshing: true,
+    });
+    this.getMyEvents();
+  }  
+
+  setPast() {
+    this.setState({
+      current: false,
+      refreshing: true,
+    });
+    this.getMyPastEvents();
   }
 
   // go to create an event
@@ -108,7 +137,7 @@ export class EventsList extends Component {
     this.setState({
       refreshing: true
     });
-    this.getNearbyEvents();
+    this.getMyEvents();
   }
 
   // If there are events, greet the user
@@ -122,8 +151,21 @@ export class EventsList extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <View style={styles.events}>
+      <View style={styles.containerRight}>
+        <View>
+          <TouchableHighlight style={styles.publicButton} underlayColor='white' onPress={this.addFriends}> 
+            <Text style={styles.buttonText}>+</Text>
+          </TouchableHighlight>
+        </View>
+        <View style={[styles.buttonContainer]}>
+            <TouchableHighlight underlayColor='white' style={this.state.current ? styles.meComingHightlight : styles.meComing} onPress={this.setCurrent}>
+              <Text style={styles.buttonText}>Current Events</Text>
+            </TouchableHighlight>
+            <TouchableHighlight underlayColor='white' style={this.state.current ? styles.meComing : styles.meComingHightlight} onPress={this.setPast}>
+              <Text style={styles.buttonText}>Past Events</Text>
+            </TouchableHighlight>
+        </View>
+        <View style={[styles.container, styles.events]}>
           <ListView
             renderSectionHeader={this.renderSectionHeader}
             refreshControl={

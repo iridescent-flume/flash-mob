@@ -21,6 +21,8 @@ export class Event extends Component {
     this._showDescription = this._showDescription.bind(this);
     this._toggleDescription = this._toggleDescription.bind(this);
     this._toggleIsComing = this._toggleIsComing.bind(this);
+    this._date = new Date(this.props.event.date).toString().slice(4, 15);
+    this._time = 'Loading Time';
   }
 
   // show description when tapped on
@@ -47,10 +49,11 @@ export class Event extends Component {
         location: this.props.event.location,
         latitude: this.props.event.latitude,
         longitude: this.props.event.longitude,
-        date: this.props.event.date,
+        date: this._date,
         description: this.props.event.description,
         private: this.props.event.private,
-        invites: this.props.event.invites
+        invites: this.props.event.invites,
+        time: this._time
       }
     });
   }
@@ -63,12 +66,12 @@ export class Event extends Component {
         <Text style={styles.eventText}>
           {this.props.event.description}
         </Text>
-          <View style={styles.eventButtons}>
-            <TouchableHighlight style={styles.meComing} underlayColor='white' onPress={this._toggleIsComing}>
+          <View style={styles.hiddenButtons}>
+            <TouchableHighlight style={styles.Coming} underlayColor='white' onPress={this._toggleIsComing}>
               <Text style={styles.meComingText}>i am coming!</Text>
             </TouchableHighlight>
-            <TouchableHighlight style={styles.eventInfoButton} underlayColor='white' onPress={this._forwardToEventPage}>
-              <Text style={styles.eventInfo}>?</Text>
+            <TouchableHighlight style={styles.EventInfo} underlayColor='white' onPress={this._forwardToEventPage.bind(this)}>
+              <Text style={styles.meComingText}>event info</Text>
             </TouchableHighlight>
           </View>
         </View>
@@ -79,12 +82,11 @@ export class Event extends Component {
   }
 
   render() {
-    var date = new Date(this.props.event.date).toString().slice(4, 15);
     var minutes = new Date(this.props.event.date).toString().slice(18, 21);
     var hours = new Date(this.props.event.date).toString().slice(16, 18);
-    hours = ((Number(hours) + 11) % 12 + 1);
-    var suffix = hours >= 12 ? ' PM':' AM';
-    var time = hours + minutes + suffix;
+    AMPMhours = ((Number(hours) + 11) % 12 + 1);
+    var suffix = Number(hours) >= 12 ? ' PM' : ' AM';
+    this._time = AMPMhours + minutes + suffix;
 
     return (
       <TouchableWithoutFeedback style={styles.highlight} onPress={this._toggleDescription}>
@@ -98,7 +100,7 @@ export class Event extends Component {
             <Text style={styles.distAndTime}>{
               Math.floor(distance(this.props.latitude, this.props.longitude, this.props.event.latitude, this.props.event.longitude) * 10) / 10
             } miles away @ {
-              (time + ', ' + date)
+              (this._time + ', ' + this._date)
             }</Text>
           </View>
           <View style={styles.hidden}>
