@@ -57,8 +57,8 @@ Contributing
 
   To Run:
 
+      In Terminal, mysql.server start
       In Terminal in server folder, nodemon server.js
-      In Terminal, start mysql server
       In Terminal in root directory, react-native run-ios
       *XCode is needed for IOS simulator
 
