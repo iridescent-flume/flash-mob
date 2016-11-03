@@ -4,11 +4,11 @@ Flash
 
 Entertainment on a whim!
 
-Team Purposeful Llama
+Team Iridescent Flume
 
-Product Owner: Wendy Cheung
-Scrum Master: Chris Picato
-Development Team Members: Akai Senghor, Danny Metzger
+Product Owner: Cary Meskell
+Scrum Master: Michael Chow
+Development Team Members: Patrick Hartley, Josephine Eng
 
 Table of Contents
 
@@ -62,11 +62,11 @@ Installing Dependencies
 
 Roadmap
 
-  Contact Purposeful Llama for access to Trello
+  Contact Iridescent Flume for roadmap
 
 Contributing
 
-  Wendy Cheung: Front-end
-  Akai Senghor: Front-end
-  Chris Picato: Back-end
-  Danny Metzger: Back-end
+  Cary Meskell: Back-end
+  Patrick Hartley: Back-end
+  Michael Chow: Front-end
+  Josephine Eng: Front-end
