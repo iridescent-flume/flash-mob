@@ -19,11 +19,9 @@ Contributing
 
 # Table of Contents
 
-    Usage
-    Requirements(#Requirements)
-    Development(#Development)
-    Installing Dependencies(#Installing Dependencies)
-    Contributing
+    Requirements
+    Development
+    Installing Dependencies
 
 # Requirements:
 
