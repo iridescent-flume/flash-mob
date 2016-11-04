@@ -1,31 +1,33 @@
-# flash-mob
-
-Flash
+# Flash
 
 Entertainment on a whim!
 
 ![alt tag](http://www.carymeskell.com/portfolio/flashPortfolio.jpg)
 
-Team Iridescent Flume
+## Table of Contents
 
-  Product Owner: Cary Meskell
-  Scrum Master: Michael Chow
-  Development Team Members: Patrick Hartley, Josephine Eng
+1. [Team](#team-iridescent-flume)
+2. [Contributing](#contributing)
+3. [Requirements](#requirements)
+4. [Usage](#usage)
+    1. [Installing Dependencies](#installing-dependencies)
+    2. [To Run](#to-run)
+5. [Roadmap](#roadmap)
 
-Contributing
+## Team Iridescent Flume
 
-    Cary Meskell: Back-end
-    Patrick Hartley: Back-end
-    Michael Chow: Front-end
-    Josephine Eng: Front-end
+  - __Product Owner__: Cary Meskell
+  - __Scrum Master__: Michael Chow
+  - __Development Team Members__: Patrick Hartley, Josephine Eng
 
-# Table of Contents
+## Contributing
 
-    Requirements
-    Development
-    Installing Dependencies
+  - Back-end: Cary Meskell
+  - Back-end: Patrick Hartley
+  - Front-end: Michael Chow
+  - Front-end: Josephine Eng
 
-# Requirements:
+## Requirements:
 
       body-parser ^1.15.2
       bootstrap ^4.0.0-alpha.2
@@ -46,9 +48,9 @@ Contributing
       babel-preset-react ^6.5.0
       react-native-cli ^1.0.0
 
-# Development
+## Usage
 
-  Installing Dependencies
+## Installing Dependencies
 
   In Terminal, from within the root directory:
 
@@ -57,13 +59,13 @@ Contributing
       npm install -g react-native-cli
       npm install
 
-  To Run:
+## To Run
 
       In Terminal, mysql.server start
       In Terminal in server folder, nodemon server.js
       In Terminal in root directory, react-native run-ios
       *XCode is needed for IOS simulator
 
-Roadmap
+## Roadmap
 
   Contact Iridescent Flume for roadmap
