@@ -4,6 +4,8 @@ Flash
 
 Entertainment on a whim!
 
+![alt tag](http://www.carymeskell.com/portfolio/flashPortfolio.jpg)
+
 Team Iridescent Flume
 
   Product Owner: Cary Meskell
